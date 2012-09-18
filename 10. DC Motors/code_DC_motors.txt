@@ -1,0 +1,50 @@
+/*********************************************************/
+/**	Workshop India										**/
+/**	Code controls DC motors								**/
+/*********************************************************/
+
+
+int menPin = 5;
+int ml1Pin = 7;
+int ml2Pin = 8;
+int men2Pin = 3;
+int m21Pin = 2;
+int m22Pin = 4;
+
+
+
+void setup()
+{
+   pinMode(menPin, OUTPUT);
+   pinMode(ml1Pin, OUTPUT);
+   pinMode(ml2Pin, OUTPUT);
+   digitalWrite(menPin, HIGH);
+   pinMode(m21Pin, OUTPUT);
+   pinMode(m22Pin, OUTPUT);
+   digitalWrite(men2Pin, HIGH);
+}
+
+void loop()
+{
+   digitalWrite(ml1Pin, HIGH);
+   digitalWrite(ml2Pin, LOW);
+   digitalWrite(m21Pin, HIGH);
+   digitalWrite(m22Pin, LOW);
+   delay(500);  
+   digitalWrite(ml1Pin, HIGH);
+   digitalWrite(ml2Pin, HIGH);
+   digitalWrite(m21Pin, HIGH);
+   digitalWrite(m22Pin, HIGH);
+   delay(500);
+   digitalWrite(ml1Pin, LOW);
+   digitalWrite(ml2Pin, HIGH);
+   digitalWrite(m21Pin, LOW);
+   digitalWrite(m22Pin, HIGH);
+   delay(500);
+   digitalWrite(ml1Pin, HIGH);
+   digitalWrite(ml2Pin, HIGH);
+   digitalWrite(m21Pin, HIGH);
+   digitalWrite(m22Pin, HIGH);
+
+   delay(500);
+}

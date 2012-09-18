@@ -1,0 +1,110 @@
+Arduino - IR Password Protection:
+
+
+
+Requirements:
+
+
+* IR Library.
+
+* EEPROM Library.
+
+* Hardware Reset(Using Transistor and an OUTPUT pin).
+
+* TSOP IR Receiver(17xx).
+
+***********************************************************************************************************************************************************************
+
+Specifications:
+
+
+* Supports only NEC Protocol.
+
+* 4 bit PIN(Password).
+
+* PIN written to EEPROM on Developer specified Memory Location.
+
+* Efficient EEPROM access and longer EEPROM life, Since it utilizes only two bytes for four digit PIN. 
+  So,it is enough to access EEPROM two times rather than four times.
+
+* Need to press OK button after PIN entry to verify.
+
+***********************************************************************************************************************************************************************
+  
+This sketch contains following features:
+
+  
+* This can get new PIN from user for the first time use, if there is no PIN in the EEPROM.
+
+* Option to change PIN on runtime (With verifying old PIN and getting new PIN and storing it, Finally resetting board).
+
+* Verifying PIN to enter into loop(), if fails board resets.
+
+* Option to reset PIN entry to try PIN again without resetting board (Using as backspace key to clear current PIN entry).
+
+***********************************************************************************************************************************************************************
+
+Used Functions:
+
+
+Functions from IR Library:
+
+* irrecv.decode(&results) - TO check whether any decoded IR data is available or not.
+
+* IRrecv irrecv(RECV_PIN) - TO set the IR input pin.
+
+* irrecv.enableIRIn() - To enable the IR input.
+
+* irrecv.resume() - To command MCU to process next incoming signal.
+
+User defined Functions:
+
+* int powe(byte k,byte y) - To get power ie. k^y, inbuilt pow() function is not used since it returns double on which bit operators cannot be operated.
+
+* byte compass() - Used to compare original PIN with user entered PIN, returns 1 if both PINs are same else 2.
+
+* void passret() - Used to retrieve original PIN from EEPROM.
+
+* void passset() - Used to write new PIN to EEPROM.
+
+* void ir() - Used to get data from decoded IR signal (Only for NEC Protocol since it uses bit inverse and bit reversal).
+
+* void getpass() - Used to get PIN from the user. 
+
+***********************************************************************************************************************************************************************
+
+Used Variables:
+
+
+Byte:
+
+* t - Temporary variable to hold the extracted data(Bit Reversed) from decoded IR signal.
+
+* i - Used as control variable in for() loop for bit reversal in ir().
+
+* n - TO contain the final data carried by IR signal.
+
+* h - Used as control variable for getting PIN from user in getpass().
+
+Integer:
+
+* m - To hold the decoded IR data (ie: 1641447551 ), contains 32 bits of data.
+
+* p - To hold the current PIN obtained from user.
+ 
+* value - To hold the original PIN retrieved form EEPROM.
+
+***********************************************************************************************************************************************************************
+
+Used IR Remote Buttons:
+
+
+* 1 to 9 - To enter numbers 1 to 9 (Data: 1 to 9).
+
+* Snapshot - To reset current PIN and to enter new one (Data: 25).
+
+* Record - To reset the current PIN entry and to try again (Data: 29).  
+
+* Ok - To represent ok keystroke (Data: 22).
+
+***********************************************************************************************************************************************************************

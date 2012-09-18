@@ -1,0 +1,33 @@
+/*********************************************************/
+/**	Workshop India										**/
+/**	Code oupits stuff onto an LCD						**/
+/*********************************************************/
+
+
+#include <LiquidCrystal.h>
+
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);  // this corresponds to lcd(RS, EN, DB4, DB5, DB6, DVB7);
+void setup() {
+
+  lcd.begin(16, 2);
+
+  lcd.print("LCD Initialised");
+  delay(1000);
+  lcd.setCursor(0, 1);
+  lcd.print("Hello you!);
+  delay(2000);
+}
+  
+void loop() {
+
+  // (note: line 1 is the second row, since counting begins with 0):
+  //lcd.setCursor(0, 1);
+
+  lcd.clear();
+  lcd.print("Workshop India");
+  lcd.setCursor(0, 1);
+  lcd.print(millis()/1000);
+  delay(500);
+  
+}

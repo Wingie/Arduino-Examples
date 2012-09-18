@@ -1,0 +1,25 @@
+/*********************************************************/
+/**	Workshop India										**/
+/**	Code controls 2 LEDs on pins 2,3,4					**/
+/*********************************************************/
+
+
+int pin1 = 2;
+int pin2 = 3;
+int pin3 = 4;
+void setup() {                
+  pinMode(pin1, OUTPUT);     
+  pinMode(pin2, OUTPUT);   
+  pinMode(pin3, OUTPUT);   
+}
+
+void loop() {
+  digitalWrite(pin1, HIGH);   // set the LED on
+  digitalWrite(pin2, HIGH);   // set the LED on
+  digitalWrite(pin3, HIGH);   // set the LED on
+  delay(1000);              // wait for a second
+  digitalWrite(pin1, LOW);    // set the LED off
+   digitalWrite(pin2, LOW);    // set the LED off
+    digitalWrite(pin3, LOW);    // set the LED off
+  delay(1000);              // wait for a second
+}

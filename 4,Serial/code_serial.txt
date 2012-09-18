@@ -1,0 +1,17 @@
+/*********************************************************/
+/**	Workshop India										**/
+/**	Code controls serial port output      				**/
+/*********************************************************/
+
+
+void setup() {                
+  Serial.begin(9600);
+}
+
+void loop() {
+	for(int i = 0; i<100; i++)
+	{
+   Serial.println(<val>);
+   delay(200);
+	}
+}

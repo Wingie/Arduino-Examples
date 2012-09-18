@@ -1,0 +1,19 @@
+/*********************************************************/
+/**	Workshop India										**/
+/**	Code controls an LED by the press of a switch		**/
+/*********************************************************/
+
+int swtch = 2;
+int led =13;
+
+void setup() {                
+  pinMode(led, OUTPUT);     
+  pinMode(swtch,INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+   int val = digitalRead(swtch);
+   digitalWrite(led,val);
+   Serial.println(val);
+}

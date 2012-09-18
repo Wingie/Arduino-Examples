@@ -1,0 +1,20 @@
+/*********************************************************/
+/**	Workshop India										**/
+/**	Code reads ONE IR sensor on shield and sets buzzer	**/
+/*********************************************************/
+
+
+int val;
+void setup()
+{
+Serial.begin(9600);
+pinMode(6,OUTPUT);
+pinMode(10, INPUT);
+}
+
+void loop()
+{
+ val = digitalRead(10);
+ Serial.println(val,DEC);
+ digitalWrite(6,!val);
+}

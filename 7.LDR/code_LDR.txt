@@ -1,0 +1,17 @@
+/*********************************************************/
+/**	Workshop India										**/
+/**	Code reads a LDR and controls LED13 blinking delay	**/
+/*********************************************************/
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int sensorValue = analogRead(A0);
+  Serial.println(sensorValue, DEC);
+ 	digitalWrite(ledPin, HIGH); 
+	delay(sensorValue); 
+	digitalWrite(ledPin, LOW); 
+	delay(sensorValue); 
+}
